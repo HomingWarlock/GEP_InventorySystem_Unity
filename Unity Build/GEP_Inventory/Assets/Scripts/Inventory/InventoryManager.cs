@@ -6,17 +6,20 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    public string inventory_type;
+    private string inventory_type;
 
     public List<Item> inventory_list = new List<Item>();
-    public Transform list_content;
+    private Transform list_content;
     public GameObject list_object;
+    public GameObject list_tooltip;
 
     private void Awake()
     {
         inventory_type = "List";
 
         list_content = GameObject.Find("Content(List)").GetComponent<Transform>();
+        list_tooltip = GameObject.Find("Tooltip(List)");
+        list_tooltip.SetActive(false);
     }
 
     public void AddItem(Item item)
@@ -37,7 +40,7 @@ public class InventoryManager : MonoBehaviour
         CreateInventory();
     }
 
-    public void CreateInventory()
+    private void CreateInventory()
     {
         if (inventory_type == "List")
         {
@@ -56,6 +59,9 @@ public class InventoryManager : MonoBehaviour
 
                 TextMeshProUGUI item_ui_name = item_ui.transform.Find("ItemName(List)").GetComponent<TextMeshProUGUI>() as TextMeshProUGUI;
                 item_ui_name.text = inventory_list[i].item_name;
+
+                ToolTipAction tool_script = item_ui.GetComponent<ToolTipAction>() as ToolTipAction;
+                tool_script.list_index = i;
             }
         }
     }
