@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CamSpin : MonoBehaviour
 {
@@ -15,9 +16,6 @@ public class CamSpin : MonoBehaviour
 
     void Update()
     {
-        if (!player_script.inventory_pause)
-        {
-            transform.RotateAround(player_object.transform.position, Vector3.up, Input.GetAxisRaw("Mouse X") * 1000 * Time.deltaTime);
-        }
+        transform.RotateAround(player_object.transform.position, Vector3.up, Input.GetAxisRaw("Mouse X") * 1000 * Time.deltaTime);
     }
 }

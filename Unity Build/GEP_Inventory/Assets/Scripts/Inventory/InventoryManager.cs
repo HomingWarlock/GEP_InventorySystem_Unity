@@ -9,9 +9,9 @@ public class InventoryManager : MonoBehaviour
     private string inventory_type;
 
     public List<Item> inventory_list = new List<Item>();
-    private Transform list_content;
-    public GameObject list_object;
-    public GameObject list_tooltip;
+    private Transform list_content; //Parent of Inventory Ui
+    public GameObject list_object;  //Prefab for Inventory Ui
+    public GameObject list_tooltip; //Tooltip Gameobject
 
     private void Awake()
     {
