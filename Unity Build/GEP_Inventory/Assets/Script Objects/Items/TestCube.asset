@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: TestCube
   m_EditorClassIdentifier: 
   item_name: Test Cube
+  item_desc: A standard cube used primarily during tests
   item_icon: {fileID: 21300000, guid: 2c390cb6da508e648a52644e2c10025f, type: 3}
+  item_object: {fileID: 7884644810860586594, guid: fb099c53a486e0f46b23848bdc40057a, type: 3}

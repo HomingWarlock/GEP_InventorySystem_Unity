@@ -9,13 +9,18 @@ public class PlayerScript : MonoBehaviour
     private Vector3 back_dir;
     private Vector3 right_dir;
     private Vector3 true_dir;
+    public Vector3 last_dir;
     private GameObject cam_point;
+
+    public bool movement_locked;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         move_speed = 500;
         cam_point = GameObject.Find("CamPoint");
+
+        movement_locked = false;
     }
 
     void Update()
@@ -27,13 +32,16 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        if (!movement_locked)
         {
-            rb.velocity = new Vector3(true_dir.x * move_speed * Time.deltaTime, rb.velocity.y, true_dir.z * move_speed * Time.deltaTime);
-        }
-        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
-        {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                rb.velocity = new Vector3(true_dir.x * move_speed * Time.deltaTime, rb.velocity.y, true_dir.z * move_speed * Time.deltaTime);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            }
         }
     }
 }

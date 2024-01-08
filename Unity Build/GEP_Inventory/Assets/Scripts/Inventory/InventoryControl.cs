@@ -4,39 +4,47 @@ using UnityEngine;
 
 public class InventoryControl : MonoBehaviour
 {
-    public GameObject list_inventory;
+    public PlayerScript player_script;
+
     public bool inventory_open;
     public bool inventory_delay;
 
+    public GameObject list_inventory;
+
     void Start()
     {
-        list_inventory = GameObject.Find("Inventory(List)");
-        list_inventory.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        player_script = GetComponent<PlayerScript>();
+
         inventory_open = false;
         inventory_delay = false;
+
+        list_inventory = GameObject.Find("Inventory(List)");
+        list_inventory.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
         //Debug Locks Below
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Cursor.lockState = CursorLockMode.None;
         }
 
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
         //Debug Locks Above
 
-        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I))
         {
             if (!inventory_open && !inventory_delay)
             {
                 list_inventory.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
+                player_script.movement_locked = true;
                 inventory_delay = true;
                 StartCoroutine(InventoryToggleDelay());
             }
@@ -44,6 +52,7 @@ public class InventoryControl : MonoBehaviour
             {
                 list_inventory.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
+                player_script.movement_locked = false;
                 inventory_delay = true;
                 StartCoroutine(InventoryToggleDelay());
             }

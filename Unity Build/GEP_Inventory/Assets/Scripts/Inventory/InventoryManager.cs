@@ -28,6 +28,7 @@ public class InventoryManager : MonoBehaviour
         {
             inventory_list.Add(item);
         }
+
         CreateInventory();
     }
 

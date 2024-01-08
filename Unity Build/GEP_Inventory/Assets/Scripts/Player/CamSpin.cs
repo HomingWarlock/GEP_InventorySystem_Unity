@@ -16,6 +16,9 @@ public class CamSpin : MonoBehaviour
 
     void Update()
     {
-        transform.RotateAround(player_object.transform.position, Vector3.up, Input.GetAxisRaw("Mouse X") * 1000 * Time.deltaTime);
+        if (!player_script.movement_locked)
+        {
+            transform.RotateAround(player_object.transform.position, Vector3.up, Input.GetAxisRaw("Mouse X") * 1000 * Time.deltaTime);
+        }
     }
 }

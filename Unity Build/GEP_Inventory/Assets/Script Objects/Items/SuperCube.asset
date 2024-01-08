@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SuperCube
   m_EditorClassIdentifier: 
   item_name: Super Cube
+  item_desc: The superior variant of the Test Cube
   item_icon: {fileID: 21300000, guid: 25fb0b88ef47701418d707dfacceca7f, type: 3}
+  item_object: {fileID: 5258187281365778549, guid: 312191d8fd469ef4fa7df8539fa6b928, type: 3}
