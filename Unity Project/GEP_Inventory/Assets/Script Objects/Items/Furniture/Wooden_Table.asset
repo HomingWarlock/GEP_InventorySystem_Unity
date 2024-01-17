@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fc53ebc110ac846944b46d12bd5eb8, type: 3}
+  m_Name: Wooden_Table
+  m_EditorClassIdentifier: 
+  item_name: Wooden Table
+  item_desc: I didn't expect you to grab the table
+  item_icon: {fileID: 21300000, guid: ea1e84f4e3cd20749827d441a085805c, type: 3}
+  item_object: {fileID: 818155337033645794, guid: f1548b439e322184f86cd008177feba7, type: 3}
